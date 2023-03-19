@@ -24,7 +24,9 @@ public class Main {
 	public static void main(String[] args) {
 		Escola e = Escola.criarEscolaPadrao();
 
+		// loop para o menu não fechar
 		while (true) {
+			// exibe dialog para selecionar perfil
 			TipoPerfil perfil = obterPerfil();
 			switch (perfil) {
 			case ALUNO:
@@ -40,7 +42,7 @@ public class Main {
 		}
 	}
 
-	// mostra o menu de gerencia da escola
+	// mostra o menu de gerência da escola
 	public static void menuGestor(Escola e) {
 		while (true) {
 			// abre a dialog de selecionar a ação do gestor

@@ -13,6 +13,7 @@ public class Gestor extends Pessoa {
 		this.senha = senha;
 	}
 
+	// retorna true se o usuário e senha forem iguais ao do gestor
 	public boolean login(String usuario, String senha) {
 		return this.usuario.equals(usuario) && this.senha.equals(senha);
 	}

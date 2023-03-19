@@ -85,6 +85,8 @@ public class Curso implements Crud {
 
 	public static void cadastrar(Escola e) {
 		Curso curso = new TelaCadastroCurso(e).getCurso();
+		if (curso == null)
+			return;
 		if (verificarCursoJaCadastrado(e, curso)) {
 			JOptionPane.showMessageDialog(null, "Curso " + curso.codigo + " já cadastrado.", "Erro",
 					JOptionPane.ERROR_MESSAGE);

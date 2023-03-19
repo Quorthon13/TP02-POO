@@ -34,6 +34,7 @@ public class Escola {
 	public void gerenciar(TipoItem item) {
 		if (item == TipoItem.RELATORIOS) {
 			while (true) {
+				// exibe a tela para seleção do relatório
 				TipoItem relatorio = (new TelaRelatorios(Arrays.asList(ALUNO, PROFESSOR, CURSO, SALA)))
 						.getSelectedButton();
 				if (relatorio == null) {
@@ -50,8 +51,8 @@ public class Escola {
 	private void crud(TipoItem item) {
 		OperacaoEnum operacao;
 		do {
-			// Salas possuem apenas cadastro
 			if (item == TipoItem.SALA) {
+				// Salas possuem apenas operação de cadastro
 				operacao = OperacaoEnum.CADASTRAR;
 			} else {
 				// mostra o dialog para seleção da operação
@@ -61,7 +62,7 @@ public class Escola {
 			}
 
 			/**
-			 * utiliza REFLECTION para fazer a chamada das funções de crud nas classes
+			 * utiliza REFLECTION para fazer a chamada das funções de crud das classes
 			 * ALUNO, PROFESSOR, CURSO, SALA
 			 **/
 			try {
@@ -75,6 +76,7 @@ public class Escola {
 		} while (item != SALA);
 	}
 
+	// verifica se o usuario e senha inseridos sao iguais a algum cadastrado
 	public boolean validarLoginGestor(String usuario, String senha) {
 		for (Gestor g : gestores) {
 			if (g.login(usuario, senha)) {
@@ -84,6 +86,7 @@ public class Escola {
 		return false;
 	}
 
+	// exibe o relatório de acordo com o tipo de relatório passado pelo parâmetro
 	public void exibirRelatorio(TipoItem relatorio, boolean gestor) {
 		String texto = "";
 		switch (relatorio) {
